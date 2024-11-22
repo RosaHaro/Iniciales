@@ -21,7 +21,7 @@ public static void rhaGenerarRegistroTemp(){
     rhaAemet.rhanombres[i] = rhaAemet.entrada.next();
 
     }
-
+2
 }
 public static void rhaListarRegistroTemp(){
 //Se muestra el listado de de las ciudades con sus temperaturas semanales 
