@@ -1,4 +1,4 @@
-package poo;
+package Concesionario;
 
 public class Vehiculo {
     public int DIAS =7;
