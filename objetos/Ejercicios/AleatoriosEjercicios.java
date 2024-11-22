@@ -7,6 +7,7 @@ public static void main(String[]args) {
     //AleatoriosEjercicios.Ejercicio11();
     AleatoriosEjercicios.Ejercicio7();
 }
+
      public static void Ejercicio7(){
         int aleatorio = 0;
         for (int i = 1; i <= 30; i+=2) { 
