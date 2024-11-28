@@ -1,81 +1,88 @@
 package poo.Aemet2;
 
+import java.util.ArrayList;
+
+import Arrays.temperaturaCiudad;
+
 public class regCiudad2 {
+
     public  final int NDIAS = 7;
     public  final int NTEMP = 3;
     
-    private String[] dias = { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" };
-    private int[][] temperaturas = new int[NDIAS][NTEMP];
+    private ArrayList<String> dias = new ArrayList<>(); //1D
 
     private String nombre;
-    private int Vmax;
-    private int Vmin;
+    private int vmax;
+    private int vmin;
+    int[][] temperaturas1 = new int[NDIAS][NTEMP];
+    ArrayList<ArrayList<Integer>> temperaturas = new ArrayList<>();
+    
 
-    public regCiudad2(String nombre){
-        //(Granada) ---> por defecto vmin=-1 y vmax=40
+    public RegCiudad1(String nombre){
         this.setNombre(nombre);
-        this.setVmax(40);
         this.setVmin(-1);
+        this.setVmax(40);
+        this.setDias();
         this.GenerarTemperaturas();
+        this.mostrarTemperaturas();
     }
-    public regCiudad2(String nombre, int vmin, int vmax){
-        //Nomnre de ciudad y valores vmax/vmin entre los que socilan las tempaeraturas
-        //(Almeria, 20, 40)
-        this.setNombre(nombre);
-        this.setVmax(vmax);
-        this.setVmin(vmin);
-        this.GenerarTemperaturas();
-    }
+    
 
+    public void setDias(){
+        this.dias.add("Lunes"); this.dias.add("Martes"); this.dias.add("Miercoles"); this.dias.add("Jueves"); 
+        this.dias.add("Viernes"); this.dias.add("Sabado"); this.dias.add("Domingo"); 
+    }
+   
     public void setNombre(String nombre){
         this.nombre = nombre;
     }
     public void setVmax (int vmax){
-        this.Vmax = vmax;
+        this.vmax = vmax;
     }
     public void setVmin (int vmin){
-        this.Vmin = vmin;
+        this.vmin = vmin;
     }
 
-    public String getNombre(){
-        return this.nombre;
-    }
-    public int getVmax(){
-        return this.Vmax;
-    }
-    public int getVmin(){
-        return this.Vmin;
-    }
-    
     public void GenerarTemperaturas(){
-        for (int i=0; i<NDIAS; i++){
-            for (int j=0; j<NTEMP; j++){
-                int temperatura = (int) (Math.random() * (this.Vmax - this.Vmin + 1)) + this.Vmin;
-                this.temperaturas[i][j] = temperatura;
+        //las 3 temperaturas de 1 DIA
+        // ArrayList<Integer> tempDia = new ArrayList<>();
+        // for (int i=0; i<3; i++){
+        //     tempDia.add(0);
+        // }
+
+        for (String nombre: this.dias){
+            // lunes(0), martes(1) ...
+            ArrayList<Integer> tempDia = new ArrayList<>();
+            for (int i=0; i<3; i++){
+                tempDia.add(0);
             }
+            for (int j=0; j<3; j++ ){ //3 temperaturas por dia
+                int temperatura = (int) (Math.random() * (this.vmax - this.vmin + 1)) + this.vmin;
+                tempDia.set(j, temperatura);
+                // tempDia.add(temperatura);
+                
+            }
+            
+            // tengo en el array "tempdia" las 3 temperaturas del dia 
+            this.temperaturas.add(tempDia);
         }
     }
 
-    public void mostrarTabla(){
-        String temp="";
-        System.out.printf("%10s", this.getNombre());
-        for (int i=0; i<7; i++){
-            System.out.printf("%15s", this.dias[i]+"   ");
-        }
-        System.out.println();
-        System.out.printf("%10s", "");
+    public void mostrarTemperaturas() {
+        
+        ArrayList<Integer> tempDia = new ArrayList<>();
 
-        for (int i=0; i<NDIAS; i++){
-            temp ="";
-            for (int j=0; j<NTEMP; j++){
-                temp = temp + this.temperaturas[i][j]+ ", ";
+        for (int i=0; i<this.temperaturas.size(); i++){
+            System.out.print(this.dias.get(i) + ": ");
+            //System.out.print(this.temperaturas.get(i));
+            tempDia = this.temperaturas.get(i);
+            for (int temp: tempDia ){
+                System.out.print(temp + ", ");
             }
-            System.out.printf("%15s", temp);
+            System.out.println();
         }
-        System.out.println();
-
+        //    
+        //    }
     }
-
-
-
+ 
 }
