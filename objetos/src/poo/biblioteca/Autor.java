@@ -1,24 +1,29 @@
 package poo.biblioteca;
+
 public class Autor{
     private final int id;
-    private String nombre1;
+    private String nombre;
     private String apellido1;
     private String apellido2;
     private String email;
     // Constructor
-    public Autor(String nombre1, String apellido1, String apellido2, String email) {
-        this.nombre1 = nombre1;
+    public Autor(int id,String nombre, String apellido1, String apellido2, String email) {
+        this.nombre = nombre;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
-        this.id =(int) (Math.random() * 1000); 
         this.email =email;
+        this.id =(int) (Math.random() * 1000); 
     }
     // Métodos getter y setter
-    public String getNombre1() {
-        return nombre1;
+   
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public String getNombre() {
+        return nombre;
     }
 
-L void setApellido1(String apellido1) {
+    public void setApellido1(String apellido1) {
         this.apellido1 = apellido1;
     }
 
@@ -38,11 +43,20 @@ L void setApellido1(String apellido1) {
     public void setEmail(String email) {
         this.email = email;
     }
-    public void main(String[] args) {
-    Autor autor = new Autor("Juan", "Perez", "Martinez", "juan.perez@example.com");
-    System.out.println("Autor: " + autor.getNombre1() + " " + autor.getApellido1() + " (ID: " + autor.id + ")");
+
+    // Método toString para una representación en cadena del objeto
+    @Override
+    public String toString() {
+        return "Autor{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido1 + '\'' +
+                ", segundo apellido='" +apellido2+'\''+
+                ", email='" + email + '\'' +
+                '}';
     }
 }
+
 
 
 

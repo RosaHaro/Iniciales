@@ -2,8 +2,6 @@ package poo.Aemet2;
 
 import java.util.ArrayList;
 
-import Arrays.temperaturaCiudad;
-
 public class regCiudad2 {
 
     public  final int NDIAS = 7;
@@ -18,7 +16,7 @@ public class regCiudad2 {
     ArrayList<ArrayList<Integer>> temperaturas = new ArrayList<>();
     
 
-    public RegCiudad1(String nombre){
+    public regCiudad2(String nombre){
         this.setNombre(nombre);
         this.setVmin(-1);
         this.setVmax(40);
@@ -45,13 +43,13 @@ public class regCiudad2 {
 
     public void GenerarTemperaturas(){
         //las 3 temperaturas de 1 DIA
-        // ArrayList<Integer> tempDia = new ArrayList<>();
-        // for (int i=0; i<3; i++){
-        //     tempDia.add(0);
-        // }
-
+        ArrayList<Integer> tempDia = new ArrayList<>();
+        for (int i=0; i<3; i++){
+            tempDia.add(0);
+        }
         for (String nombre: this.dias){
             // lunes(0), martes(1) ...
+
             ArrayList<Integer> tempDia = new ArrayList<>();
             for (int i=0; i<3; i++){
                 tempDia.add(0);
@@ -59,30 +57,26 @@ public class regCiudad2 {
             for (int j=0; j<3; j++ ){ //3 temperaturas por dia
                 int temperatura = (int) (Math.random() * (this.vmax - this.vmin + 1)) + this.vmin;
                 tempDia.set(j, temperatura);
-                // tempDia.add(temperatura);
-                
+                // tempDia.add(temperatura);   
             }
-            
             // tengo en el array "tempdia" las 3 temperaturas del dia 
             this.temperaturas.add(tempDia);
         }
     }
-
     public void mostrarTemperaturas() {
         
         ArrayList<Integer> tempDia = new ArrayList<>();
 
         for (int i=0; i<this.temperaturas.size(); i++){
-            System.out.print(this.dias.get(i) + ": ");
+            System.out.println("Dirección array tempDia (hashCaode):"+Integer.toHexString(System.identityHashCode(tempDia)));
             //System.out.print(this.temperaturas.get(i));
             tempDia = this.temperaturas.get(i);
             for (int temp: tempDia ){
-                System.out.print(temp + ", ");
+                System.out.print(temp + "["+ Integer.toHexString(System.identityHashCode(temp))+"],");
             }
             System.out.println();
         }
-        //    
-        //    }
+       
     }
  
 }
