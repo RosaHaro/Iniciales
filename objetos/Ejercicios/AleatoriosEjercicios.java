@@ -4,8 +4,8 @@ public static void main(String[]args) {
     //AleatoriosEjercicios.Ejercicio5();
     //AleatoriosEjercicios.Ejercicio6();
     //AleatoriosEjercicios.Ejercicio9();
-    //AleatoriosEjercicios.Ejercicio11();
-    AleatoriosEjercicios.Ejercicio7();
+    AleatoriosEjercicios.Ejercicio11();
+    //AleatoriosEjercicios.Ejercicio7();
 }
 
      public static void Ejercicio7(){
@@ -149,39 +149,39 @@ public static void main(String[]args) {
 
     
 //     }
-    // public static void Ejercicio11(){
-    //         int suspensos = 0;
-    //         int suficientes = 0;
-    //         int bien = 0;
-    //         int notables = 0;
-    //         int sobresalientes = 0;
-    //         int mhonor = 0;
-    //         double nota = 0;
-    //         for(int i = 0; i < 20; i++) {
-    //         nota = (int)(Math.random() * 10);
-    //         nota =Math.round(nota*100.00)/100.00;
-    //         System.out.print(nota +" ");
-    //         if(nota < 5){
-    //         suspensos++;
-    //         }else if ((nota >= 5) && (nota < 6)){
-    //             suficientes++;
-    //         }else if((nota >= 6) && (nota < 7)){
-    //             bien++;
-    //         }else if ((nota >= 7) &&(nota < 8)){
-    //             notables++;
-    //         }else if((nota >= 8) && (nota < 9)){
-    //             sobresalientes++;
-    //         }else if ((nota >=9) && (nota < 10)){
-    //             mhonor++;
-    //         }
-    // }
-    // System.out.println("");
-    // System.out.println("Suspensos: " + suspensos);
-    // System.out.println("Aprobados: " + suficientes);
-    // System.out.println("Bien: " + bien);
-    // System.out.println("Notables: " + notables);
-    // System.out.println("Sobresalientes: " + sobresalientes);
-    // }
+    public static void Ejercicio11(){
+            int suspensos = 0;
+            int suficientes = 0;
+            int bien = 0;
+            int notables = 0;
+            int sobresalientes = 0;
+            int mhonor = 0;
+            double nota = 0;
+            for(int i = 0; i < 20; i++) {
+            nota = (int)(Math.random() * 10);
+            nota =Math.round(nota*100.00)/100.00;
+            System.out.print(nota +" ");
+            if(nota < 5){
+            suspensos++;
+            }else if ((nota >= 5) && (nota < 6)){
+                suficientes++;
+            }else if((nota >= 6) && (nota < 7)){
+                bien++;
+            }else if ((nota >= 7) &&(nota < 8)){
+                notables++;
+            }else if((nota >= 8) && (nota < 9)){
+                sobresalientes++;
+            }else if ((nota >=9) && (nota < 10)){
+                mhonor++;
+            }
+    }
+    System.out.println("");
+    System.out.println("Suspensos: " + suspensos);
+    System.out.println("Aprobados: " + suficientes);
+    System.out.println("Bien: " + bien);
+    System.out.println("Notables: " + notables);
+    System.out.println("Sobresalientes: " + sobresalientes);
+    }
     }
 }
 
